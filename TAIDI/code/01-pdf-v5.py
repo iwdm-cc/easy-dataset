@@ -1,17 +1,17 @@
-import os
 import glob
+import os
+
+import fitz  # PyMuPDF
 import pytesseract
 from pdf2image import convert_from_path
-from PIL import Image
-import fitz  # PyMuPDF
 from pdfminer.high_level import extract_text
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from transformers import pipeline
 
 # 定义输入和输出目录路径
-INPUT_DIR = r"C:\Users\admin\PycharmProjects\easy-dataset\TAIDI\data"  # 替换为实际输入目录路径
-OUTPUT_DIR = r"C:\Users\admin\PycharmProjects\easy-dataset\TAIDI\data5"  # 替换为实际输出目录路径，若不需要可设为 None
+INPUT_DIR = r"C:\Users\47306\PycharmProjects\easy-dataset\TAIDI\data"  # 替换为实际输入目录路径
+OUTPUT_DIR = r"C:\Users\47306\PycharmProjects\easy-dataset\TAIDI\data5"  # 替换为实际输出目录路径，若不需要可设为 None
 
 
 def convert_pdf_to_text_with_pymupdf(pdf_path):
